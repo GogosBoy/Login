@@ -5,7 +5,6 @@
 package com.mycompany.login;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class KanbanTask {
 
@@ -17,26 +16,22 @@ public class KanbanTask {
         int numberOfTasks = Integer.parseInt(JOptionPane.showInputDialog("How many tasks do you wish to enter?"));
 
         while (taskCount < numberOfTasks) {
-            String menu = "Choose an option:\n" +
-                          "1) Add tasks\n" +
-                          "2) Show report (Coming Soon)\n" +
-                          "3) Quit";
+            String menu = """
+                          Choose an option:
+                          1) Add tasks
+                          2) Show report (Coming Soon)
+                          3) Quit""";
 
             String choice = JOptionPane.showInputDialog(menu);
 
             switch (choice) {
-                case "1":
-                    addTask();
-                    break;
-                case "2":
-                    JOptionPane.showMessageDialog(null, "Coming Soon");
-                    break;
-                case "3":
+                case "1" -> addTask();
+                case "2" -> JOptionPane.showMessageDialog(null, "Coming Soon");
+                case "3" -> {
                     JOptionPane.showMessageDialog(null, "Thank you for using EasyKanban!");
                     return;
-                default:
-                    JOptionPane.showMessageDialog(null, "Invalid option. Please try again.");
-                    break;
+                }
+                default -> JOptionPane.showMessageDialog(null, "Invalid option. Please try again.");
             }
         }
 
@@ -60,3 +55,5 @@ public class KanbanTask {
         JOptionPane.showMessageDialog(null, "Task added successfully!");
     }
 }
+
+
